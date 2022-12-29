@@ -6,6 +6,7 @@ int R[100000];
 int Fluctuation[100000];
 int Sum[100000];
 
+// 差分を計算した後に累積和をとるテクニックをいもす法という
 int main()
 {
     std::cin >> D >> N;
