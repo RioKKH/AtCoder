@@ -1,0 +1,16 @@
+[
+ {
+  "directory": "/home/kakehi/work/git/AtCoder/A-Disjoint_Set_Union",
+  "arguments": [
+   "g++",
+   "-std=c++23",
+   "-O2",
+   "-Wall",
+   "-I..",
+   "-o",
+   "main",
+   "main.cpp"
+  ],
+  "file": "main.cpp"
+ }
+]

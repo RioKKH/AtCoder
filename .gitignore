@@ -3,4 +3,8 @@ a.out
 *.o
 *.in
 *.out
+*.cache
+main
+ac-library
+atcoder
 
