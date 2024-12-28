@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/home/kakehi/work/git/AtCoder/A-Disjoint_Set_Union",
+  "directory": "/home/rio/work/git/AtCoder/A-Disjoint_Set_Union",
   "arguments": [
    "g++",
    "-std=c++23",
@@ -8,7 +8,7 @@
    "-Wall",
    "-I..",
    "-o",
-   "main",
+   "a.out",
    "main.cpp"
   ],
   "file": "main.cpp"

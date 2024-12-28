@@ -4,7 +4,7 @@ a.out
 *.in
 *.out
 *.cache
+*.json
 main
 ac-library
 atcoder
-
