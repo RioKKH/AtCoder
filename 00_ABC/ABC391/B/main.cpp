@@ -25,7 +25,7 @@ int main()
     // std::cout << M << std::endl;
 
     std::vector<std::vector<char>> S(N, std::vector<char>(N));
-    std::vector<std::vector<char>> T(N, std::vector<char>(N));
+    std::vector<std::vector<char>> T(M, std::vector<char>(M));
 
     for (int i = 0; i < N; i++)
     {
