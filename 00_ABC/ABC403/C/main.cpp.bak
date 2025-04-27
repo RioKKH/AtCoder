@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    long long N, M, Q;
+    long long X;
+    long long Y;
+    // N: ユーザー数
+    // M: コンテストページ数
+    // Q: クエリ数
+    // X: ユーザーID
+    // Y: コンテストID
+
+    std::cin >> N >> M >> Q;
+
+    std::vector<std::vector<long long>>
+        table(N, std::vector<long long>(M, 0));
+
+    int top = 0;
+    for (long long i = 0; i < Q; i++)
+    {
+        std::cin >> top;
+        if (top == 1)
+        {
+            std::cin >> X >> Y;
+            table[X - 1][Y - 1] = 1;
+        }
+        else if (top == 2)
+        {
+            std::cin >> X;
+            // ユーザーXの全てのコンテストを1に設定する
+            table[X - 1].assign(M, 1);
+        }
+        else if (top == 3)
+        {
+            std::cin >> X >> Y;
+            if (table[X - 1][Y - 1] == 1)
+            {
+                std::cout << "Yes" << std::endl;
+            }
+            else
+            {
+                std::cout << "No" << std::endl;
+            }
+        }
+    }
+    return 0;
+}

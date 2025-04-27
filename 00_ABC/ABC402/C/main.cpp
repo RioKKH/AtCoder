@@ -10,6 +10,7 @@ int main()
     for (int i = 0; i < M; ++i)
     {
         int K;
+        int L;
         cin >> K;
         ryori[i].resize(K);
         for (int j = 0; j < K; ++j)
