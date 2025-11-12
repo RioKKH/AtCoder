@@ -1,66 +1,35 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+/**
+ * 全探索的な事をしたいけれど、2^Nの探索空間は
+ * 大きすぎるので不可能→動的計画法を使う事を考える。
+ * 効率的な全探索だと思えばよいか。
+ *
+ * 全部体につけてしまうことにする→絶対倒れない
+ * ここから部品を1個ずつ頭に付け替える事を考える。
+ * 頭につける嬉しさが胴体のものよりも小さい場合には
+ * 考えなくてよい
+ * どこまで頭側に移してよいか、というのは重さが制約
+ * となって決まる。
+ *
+ * 重さ   価値
+ *   2     30
+ *   8     35
+ *
+ * 重さの和を5以下 =(2+8)/以下で幸せが最大となるような
+ * 組合せを探す。
+ *
+ * 重さ   価値
+ *   2     30
+ *   3     36
+ *   4     64
+ *
+ * 頭の重さ (2+3+4) / 2以下になるように幸せを最大化する。
+ *
+ */
+
 int main()
 {
-    int N;
-    cin >> N;
-    vector<tuple<int, long long, long long>> parts(N + 1);
-    for (int i = 1; i < N + 1; i++)
-    {
-        int w;
-        long long h, b;
-        cin >> w >> h >> b;
-        parts[i] = make_tuple(w, h, b);
-    }
-
-    // Wi + Biの降順でソートする
-    sort(parts.begin() + 1, parts.end(), [](auto &a, auto &b)
-         { return get<0>(a) + get<2>(a) > get<0>(b) + get<2>(b); });
-
-    vector<int> sum(N + 1, 0);
-    for (int i = 1; i <= N; i++)
-    {
-        sum[i] = sum[i - 1] + get<0>(parts[i]);
-    }
-
-    // ここからDP
-    vector<vector<long long>> dp(N + 1, vector<long long>(sum[N] + 1, -1e18));
-    dp[0][0] = 0; // 0個の部品、頭の重さ0の時、嬉しさは0
-
-    for (int i = 1; i <= N; i++)
-    {
-        int W = get<0>(parts[i]);
-        long long H = get<1>(parts[i]);
-        long long B = get<2>(parts[i]);
-
-        for (int w = 0; w <= sum[i]; w++)
-        {
-            if (2 * w > sum[i])
-                continue;
-
-            if (w >= W && dp[i - 1][w - W] > -1e18)
-            {
-                dp[i][w] = max(dp[i][w], dp[i - 1][w - W] + H);
-            }
-
-            if (dp[i - 1][w] > -1e18)
-            {
-                dp[i][w] = max(dp[i][w], dp[i - 1][w] + B);
-            }
-        }
-    }
-
-    long long ans = 0;
-    for (int w = 0; w <= sum[N]; w++)
-    {
-        if (2 * w <= sum[N])
-        {
-            ans = max(ans, dp[N][w]);
-        }
-    }
-
-    cout << ans << endl;
-
     return 0;
 }
