@@ -1,43 +1,33 @@
-#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
 
 int main()
 {
     int N;
-    std::cin >> N;
+    cin >> N;
 
-    int* A;
-    A = (int *)malloc(sizeof(int) * N);
-
-    for (int i = 0; i < N; ++i)
+    vector<int> A(N);
+    for (int i = 0; i < N; i++)
     {
-        std::cin >> A[i];
+        cin >> A[i];
     }
 
-    bool answer = false;
-    for (int i = 0; i < N; ++i)
+    string answer = "No";
+    int sum = 0;
+    for (int i = 0; i < N - 2; i++)
     {
-        for (int j = i + 1; j < N; ++j)
+        for (int j = i + 1; j < N - 1; j++)
         {
-            for (int k = j + 1; k < N; ++k)
+            for (int k = j + 1; k < N; k++)
             {
-                if (A[i] + A[j] + A[k] == 1000)
+                sum = A[i] + A[j] + A[k];
+                if (sum == 1000)
                 {
-                    answer = true;
+                    answer = "Yes";
                 }
             }
         }
     }
-
-    if (answer)
-    {
-        std::cout << "Yes" << std::endl;
-    }
-    else
-    {
-        std::cout << "No" << std::endl;
-    }
-
-    free(A);
+    cout << answer << endl;
     return 0;
 }
-
