@@ -1,22 +1,23 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool isDivisible(const vector<int> &A, int l, int r)
+bool isNotDivisible(const vector<int> &A, int l, int r)
 {
     int sum = 0;
-    for (int i = l; i < r; i++)
+    for (int i = l; i <= r; i++)
     {
         sum += A[i];
     }
-    bool answer;
-    if (sum % A[l] == 0 || sum % A[r] == 0)
+
+    bool answer = true;
+    for (int i = l; i <= r; i++)
     {
-        answer = true;
+        if (sum % A[i] == 0)
+        {
+            answer = false;
+        }
     }
-    else
-    {
-        answer = false;
-    }
+
     return answer;
 }
 
@@ -24,18 +25,18 @@ int main()
 {
     int N;
     cin >> N;
-    vector<int> A(N);
-    for (int i = 0; i < N; i++)
+    vector<int> A(N + 1);
+    for (int i = 1; i <= N; i++)
     {
         cin >> A[i];
     }
 
     int count = 0;
-    for (int l = 0; l < N; l++)
+    for (int l = 1; l < N; l++)
     {
-        for (int r = N - 1; l < r; r--)
+        for (int r = N; l < r; r--)
         {
-            bool answer = isDivisible(A, l, r);
+            bool answer = isNotDivisible(A, l, r);
             if (answer)
             {
                 count++;
