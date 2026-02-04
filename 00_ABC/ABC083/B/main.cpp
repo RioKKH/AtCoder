@@ -14,6 +14,7 @@ int main()
     int sum = 0;
     for (int i = 1; i <= N; i++)
     {
+        // 整数の各桁の取り出し
         a = i % 100000 / 10000;
         b = i % 10000 / 1000;
         c = i % 1000 / 100;
@@ -21,9 +22,12 @@ int main()
         e = i % 10 / 1;
 
         int tmp_sum = a + b + c + d + e;
+
+        // デバッグプリント
         // cout << std::format("{}: {} {} {} {} {} {}",
         //                     i, a, b, c, d, e, tmp_sum)
         //      << endl;
+
         if (A <= tmp_sum && tmp_sum <= B)
         {
             sum += i;
