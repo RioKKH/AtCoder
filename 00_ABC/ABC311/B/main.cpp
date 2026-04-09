@@ -26,13 +26,29 @@ int main()
         cin >> s;
     }
 
-    int answer = 0;
-    for (int i = 0; i < N; i++)
+    int ans = 0, cur = 0;
+    for (int j = 0; j < D; j++)
     {
-        for (int j = 0; j < D; j++)
+        bool can = true;
+        for (int i = 0; i < N; i++)
         {
-            S[i][j];
+            if (S[i][j] != 'o')
+            {
+                // S[i][j] == 'o' --> true(1)
+                // S[i][j] != 'o' --> false(0)
+                can = false;
+            };
         }
+        if (can)
+        {
+            cur++; // 'o'が続いている場合
+        }
+        else
+        {
+            cur = 0; // 'x'が出て'o'が途切れた場合
+        }
+        ans = max(ans, cur);
     }
+    cout << ans << endl;
     return 0;
 }
