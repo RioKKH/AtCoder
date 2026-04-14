@@ -18,9 +18,16 @@ void print_vector(const vector<T> &v)
 
 int main()
 {
-    int A, B, C, K;
-    cin >> A >> B >> C >> K;
-    cout << A + B + C + max({A, B, C}) * ((1 << K) - 1) << endl;
+    int K;
+    vector<int> S(3);
+    for (int i = 0; i < 3; i++)
+    {
+        cin >> S[i];
+    }
+    sort(S.begin(), S.end());
+    cin >> K;
+
+    cout << S[0] + S[1] + (S[2] << K) << endl;
 
     return 0;
 }
