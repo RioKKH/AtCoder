@@ -1,26 +1,18 @@
-#include <iostream>
-#include <string>
+#include <bits/stdc++.h>
+using namespace std;
 
 int main()
 {
-    std::string N;
-    std::cin >> N;
+    string N;
+    cin >> N;
 
     int answer = 0;
-    int NumOfDigits = N.size();
-    for (int i = 0; i < NumOfDigits; ++i)
-    {
-        if (N[i] == '0')
-        {
-        }
-        else if (N[i] == '1')
-        {
-            answer += (1 << (NumOfDigits - 1 - i));
-        }
-    }
 
-    std::cout << answer << std::endl;
+    for (int i = 0; i < (int)N.size(); i++)
+    {
+        // cout << "i:" << i << " " << N[i] << " " << (1 << (N.size() - 1 - i)) << endl;
+        answer += (N[i] - '0') * (1 << (N.size() - 1 - i));
+    }
+    cout << answer << endl;
     return 0;
 }
-
-    
