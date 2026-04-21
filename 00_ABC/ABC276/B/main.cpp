@@ -22,6 +22,7 @@ int main()
     cin >> N >> M;
     // N個の都市
     // M本の道路
+    // この問題では隣接行列表現を用いてグラフを表現する
     vector<vector<int>> G(N + 1);
     for (int i = 1; i <= M; i++)
     {
