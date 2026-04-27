@@ -12,7 +12,8 @@ using namespace std;
 define debug2(x, y)
 #endif // DEBUG
 
-// 右, 上, 左, 下
+// 右, 下, 左, 上
+// 左上原点の座標系なので、下はh+1方向・上はh-1方向であることに注意。
 const int dx[4] = {1, 0, -1, 0};
 const int dy[4] = {0, 1, 0, -1};
 
