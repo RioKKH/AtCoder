@@ -18,5 +18,17 @@ void print_vector(const vector<T> &v)
 
 int main()
 {
+    int N, D;
+    cin >> N >> D;
+
+    vector<vector<int>> G(N);
+    for (int i = 0; i < N; i++)
+    {
+        int x, y;
+        cin >> x >> y;
+        G[x].push_back(y);
+        G[y].push_back(x);
+    }
+
     return 0;
 }
