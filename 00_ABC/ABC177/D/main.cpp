@@ -40,8 +40,11 @@ int main()
     {
         if (!visited[i])
         {
+            // 連結成分毎にサイズをカウントする
             int size = 0;
             dfs(i, G, visited, size);
+            // DFSから抜けたタイミングで一つの連結成分の探索が完了するので、
+            // このタイミングで連結成分の最大値を更新する
             max_size = max(max_size, size);
         }
     }
