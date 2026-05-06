@@ -3,7 +3,7 @@ using namespace std;
 
 int f(int x)
 {
-    if (x == 0)
+    if (x == 0) // 再帰を抜ける初期値
     {
         return 1;
     }
