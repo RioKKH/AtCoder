@@ -1,31 +1,43 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+template <typename T>
+void print_vector(const vector<T> &v)
+{
+    int size = v.size();
+    for (int i = 0; i < size; i++)
+    {
+        cout << v[i];
+        if (i < size - 1)
+        {
+            cout << " ";
+        }
+    }
+    cout << endl;
+}
+
 int main()
 {
-    int Q = 0;
-    int a, b;
-    std::queue<int> query;
+    int Q;
+    cin >> Q;
 
-    std::cin >> Q;
+    queue<int> que;
     for (int i = 0; i < Q; i++)
     {
-        std::cin >> a;
+        int a;
+        cin >> a;
+
         if (a == 1)
         {
-            std::cin >> b;
-            query.push(b);
+            int q;
+            cin >> q;
+            que.push(q);
         }
         else if (a == 2)
         {
-            std::cout << query.front() << std::endl;
-            query.pop();
+            cout << que.front() << endl;
+            que.pop();
         }
     }
-    if (query.size() == Q)
-    {
-        std::cout << std::endl;
-    }
-
     return 0;
 }
