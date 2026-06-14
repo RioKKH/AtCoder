@@ -1,24 +1,29 @@
 #include <bits/stdc++.h>
+#include <climits>
 using namespace std;
-
-template <typename T>
-void print_vector(const vector<T> &v)
-{
-    int size = v.size();
-    for (int i = 0; i < size; i++)
-    {
-        cout << v[i];
-        if (i < size - 1)
-        {
-            cout << " ";
-        }
-    }
-    cout << endl;
-}
+using ll = long long;
 
 int main()
 {
-    int N;
+    ll N;
     cin >> N;
+
+    ll sum_of_steps = 0;
+    ll current_max_height = LONG_LONG_MIN;
+    for (int i = 0; i < N; i++)
+    {
+        ll A;
+        cin >> A;
+        if (A > current_max_height)
+        {
+            current_max_height = A;
+        }
+        if (A < current_max_height)
+        {
+            sum_of_steps += current_max_height - A;
+        }
+        // cout << A << " " << current_max_height << " " << sum_of_steps << endl;
+    }
+    cout << sum_of_steps << endl;
     return 0;
 }
