@@ -18,5 +18,7 @@ void print_vector(const vector<T> &v)
 
 int main()
 {
+    int N;
+    cin >> N;
     return 0;
 }
